@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rigon Logistik GmbH | Zertifizierte Umzüge & Transporte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & CORPORATE VARIABLES ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-main: #0a0c10;
+  --bg-card: #11141a;
+  --bg-card-hover: #161a22;
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+  --brand-primary: #f5a623;
+  --brand-hover: #e0961c;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --radius-sm: 4px; /* Sharper corners for corporate feel */
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --transition: 0.2s ease-in-out;
+  --font-body: 'Inter', sans-serif; /* Switched to Inter for maximum readability/professionalism */
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg-main); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+.container { max-width: 1320px; margin: 0 auto; padding: 0 clamp(1rem, 5vw, 2rem); }
+
+/* ─── TOP BAR (Operational Details) ─── */
+.top-bar { background: #000; font-size: 0.8rem; font-weight: 500; color: var(--text-muted); padding: 0.5rem 0; border-bottom: 1px solid var(--border-color); }
+.top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.top-bar-left { display: flex; gap: 1.5rem; }
+.top-bar-left span { display: flex; align-items: center; gap: 0.4rem; }
+.top-bar-left span::before { content: '✓'; color: var(--brand-primary); font-weight: bold; }
+.top-bar-right { display: flex; gap: 1.5rem; }
+.top-bar a { color: var(--text-muted); text-decoration: none; transition: var(--transition); }
+.top-bar a:hover { color: var(--brand-primary); }
+
+/* ─── NAV ─── */
+nav { position: sticky; top: 0; z-index: 1000; background: rgba(10, 12, 16, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 1rem 0; }
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.logo-box { width: 44px; height: 44px; background: var(--brand-primary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: #000; font-weight: 800; font-size: 1.2rem; letter-spacing: -1px; }
+.logo-text { font-weight: 800; font-size: 1.3rem; color: #fff; line-height: 1.1; letter-spacing: -0.5px; }
+.logo-text span { display: block; font-size: 0.75rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 2px;}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: var(--transition); }
+.nav-links a:hover { color: var(--brand-primary); }
+.btn-nav { background: var(--brand-primary); color: #000 !important; padding: 0.5rem 1.2rem; border-radius: var(--radius-sm); font-weight: 700 !important; }
+.btn-nav:hover { background: var(--brand-hover); }
+
+/* ─── HERO (Data-Driven, No Fluff) ─── */
+.hero { padding: 5rem 0; border-bottom: 1px solid var(--border-color); background: radial-gradient(circle at top right, rgba(245,166,35,0.05), transparent 50%); }
+.hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.hero-text h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: #fff; letter-spacing: -1px; }
+.hero-text p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; }
+.hero-stats { display: flex; gap: 2rem; margin-bottom: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+.h-stat strong { display: block; font-size: 1.5rem; color: #fff; font-weight: 800; }
+.h-stat span { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Real Photo Placeholder */
+.hero-visual { position: relative; width: 100%; aspect-ratio: 4/3; background: #1a1e26; border-radius: var(--radius-md); border: 1px dashed rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; flex-direction: column; overflow: hidden; }
+.hero-visual::after { content: '📸 HIER ECHTES FUHRPARK-FOTO EINFÜGEN'; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; letter-spacing: 1px; z-index: 2; }
+.hero-visual::before { content: ''; position: absolute; inset: 0; background: linear-gradient(45deg, rgba(0,0,0,0.5), transparent); z-index: 1; }
+
+/* ─── TRUST SIGNALS BAR ─── */
+.trust-bar { background: #000; padding: 2rem 0; border-bottom: 1px solid var(--border-color); }
+.trust-logos { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; opacity: 0.7; }
+.trust-item { display: flex; align-items: center; gap: 0.8rem; font-weight: 600; font-size: 0.9rem; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+.trust-item svg { width: 24px; height: 24px; fill: var(--brand-primary); }
+
+/* ─── SECTIONS ─── */
+section { padding: 6rem 0; }
+section.bg-alt { background: var(--bg-card); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+.section-header { margin-bottom: 3rem; }
+.section-tag { display: inline-block; color: var(--brand-primary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.section-title { font-size: clamp(2rem, 3vw, 2.5rem); font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+
+/* ─── SERVICES ─── */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.service-card { background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 2rem; transition: var(--transition); }
+.service-card:hover { border-color: var(--brand-primary); }
+.service-icon { width: 48px; height: 48px; background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem; }
+.service-card h3 { font-size: 1.2rem; margin-bottom: 0.8rem; color: #fff; font-weight: 700; }
+.service-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+.service-link { color: var(--brand-primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+.service-link:hover { gap: 0.8rem; }
+
+/* ─── VERIFIED TESTIMONIALS (Google Style) ─── */
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+.t-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 2rem; position: relative; }
+.google-badge { position: absolute; top: 1.5rem; right: 1.5rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-muted); font-weight: 600; }
+.google-badge::before { content: 'G'; width: 20px; height: 20px; background: #fff; color: #4285F4; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; }
+.t-stars { color: #FBBC05; margin-bottom: 1rem; font-size: 1.2rem; letter-spacing: 2px; }
+.t-quote { font-size: 0.95rem; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.6; }
+.t-author { display: flex; align-items: center; gap: 1rem; }
+.t-avatar { width: 40px; height: 40px; border-radius: 50%; background: #2a303c; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; }
+.t-name { color: #fff; font-weight: 600; font-size: 0.95rem; display: block; }
+.t-date { font-size: 0.8rem; color: var(--text-muted); }
+
+/* ─── LOGISTICS CONTACT FORM ─── */
+.contact-layout { display: grid; grid-template-columns: 1fr 1.8fr; gap: 4rem; }
+.contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+.c-item { background: var(--bg-card); padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); }
+.c-item h4 { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.c-item p { color: #fff; font-weight: 600; font-size: 1.1rem; }
+
+.contact-form { background: var(--bg-card); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+.form-section-title { font-size: 1.1rem; color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem; margin-top: 1.5rem; }
+.form-section-title:first-child { margin-top: 0; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-row.three-col { grid-template-columns: 1fr 1fr 1fr; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 500; }
+.form-group input, .form-group select { width: 100%; background: var(--bg-main); border: 1px solid var(--border-color); padding: 0.8rem 1rem; border-radius: var(--radius-sm); color: #fff; font-family: var(--font-body); font-size: 0.95rem; }
+.form-group input:focus, .form-group select:focus { border-color: var(--brand-primary); outline: none; }
+.checkbox-group { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+.checkbox-group input { width: auto; }
+.checkbox-group label { margin: 0; cursor: pointer; color: var(--text-main); }
+.btn-submit { background: var(--brand-primary); color: #000; font-weight: 700; font-size: 1rem; padding: 1rem; border: none; border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition); width: 100%; margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.btn-submit:hover { background: var(--brand-hover); }
+
+/* ─── SEO FOOTER ─── */
+footer { background: #000; padding: 5rem 0 2rem; border-top: 1px solid var(--border-color); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+.footer-col h4 { color: #fff; margin-bottom: 1.5rem; font-size: 1rem; font-weight: 700; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.6rem; }
+.footer-col a { color: var(--text-muted); text-decoration: none; transition: var(--transition); font-size: 0.9rem; }
+.footer-col a:hover { color: var(--brand-primary); text-decoration: underline; }
+.footer-bottom { border-top: 1px solid var(--border-color); padding-top: 2rem; display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.85rem; }
+
+@media (max-width: 1024px) {
+  .hero-layout, .contact-layout { grid-template-columns: 1fr; }
+  .hero-visual { display: none; /* Hide placeholder on mobile to focus on CTA */ }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .top-bar-left span:not(:first-child) { display: none; } /* Hide extra top bar info on mobile */
+  .nav-links { display: none; }
+  .form-row, .form-row.three-col { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container">
+    <div class="top-bar-left">
+      <span>Zertifiziert nach ISO 9001</span>
+      <span>100% Allianz Transportversichert</span>
+      <span>Deutschlandweit im Einsatz</span>
+    </div>
+    <div class="top-bar-right">
+      <a href="/karriere.html">Karriere</a>
+      <a href="/b2b.html">Geschäftskunden</a>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">
+      <div class="logo-box">R</div>
+      <div class="logo-text">Rigon Logistik<br><span>GmbH</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/leistungen/privatumzug.html">Privatumzüge</a></li>
+      <li><a href="/leistungen/firmenumzug.html">Firmenverlagerung</a></li>
+      <li><a href="/leistungen/spezialtransport.html">Spezialtransporte</a></li>
+      <li><a href="/unternehmen.html">Unternehmen</a></li>
+      <li><a href="#kontakt" class="btn-nav">Frachtanfrage</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container hero-layout">
+    <div class="hero-text">
+      <h1>Zertifizierte Logistik & Unternehmensumzüge.</h1>
+      <p>Ihr zuverlässiger Partner für komplexe Standortverlagerungen, Schwerlasttransporte und Premium-Privatumzüge in ganz Europa.</p>
+      
+      <div class="hero-stats">
+        <div class="h-stat"><strong>12</strong><span>Fahrzeuge</span></div>
+        <div class="h-stat"><strong>8+</strong><span>Jahre am Markt</span></div>
+        <div class="h-stat"><strong>3.5M€</strong><span>Versicherungssumme</span></div>
+      </div>
+      
+      <div style="display:flex; gap:1rem;">
+        <a href="#kontakt" class="btn-submit" style="display:inline-block; width:auto; text-decoration:none; padding: 1rem 2rem;">Unverbindliches Angebot</a>
+        <a href="tel:+49123456789" style="display:flex; align-items:center; color:#fff; text-decoration:none; font-weight:600; padding:0 1rem;">📞 0912 345 678</a>
+      </div>
+    </div>
+    
+    <div class="hero-visual"></div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="container trust-logos">
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zm-2 14l-4-4 1.41-1.41L10 13.17l6.59-6.59L18 8l-8 8z"/></svg> ISO 9001 Zertifiziert</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zm-2 14l-4-4 1.41-1.41L10 13.17l6.59-6.59L18 8l-8 8z"/></svg> Allianz Transportpolice</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zm-2 14l-4-4 1.41-1.41L10 13.17l6.59-6.59L18 8l-8 8z"/></svg> AMÖ Mitglied</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zm-2 14l-4-4 1.41-1.41L10 13.17l6.59-6.59L18 8l-8 8z"/></svg> Gewerblich Registriert</div>
+  </div>
+</div>
+
+<section id="leistungen" class="bg-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Logistik Portfolio</div>
+      <h2 class="section-title">Unsere Kapazitäten</h2>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Firmen- & Objektumzüge</h3>
+        <p>Minimierung von Ausfallzeiten durch systematische IT- und Aktenlogistik. Vollumfängliches Projektmanagement für Standortverlagerungen.</p>
+        <a href="/leistungen/firmenumzug.html" class="service-link">Details ansehen →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Premium Privatumzüge</h3>
+        <p>Vollservice inkl. Demontage, sicherer Verpackung und Remontage. Wir behandeln Ihr Inventar mit höchster handwerklicher Sorgfalt.</p>
+        <a href="/leistungen/privatumzug.html" class="service-link">Details ansehen →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Schwer- & Spezialtransport</h3>
+        <p>Kranbeladung, Tresore, Maschinen und empfindliche Kunstwerke. Ausgeführt mit Spezialfahrzeugen und gesondertem Versicherungsschutz.</p>
+        <a href="/leistungen/spezialtransport.html" class="service-link">Details ansehen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="referenzen">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Referenzen</div>
+      <h2 class="section-title">Verifizierte Kundenstimmen</h2>
+    </div>
+    
+    <div class="testimonials-grid">
+      <div class="t-card">
+        <div class="google-badge">Verifiziert</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Die Standortverlagerung unserer Kanzlei lief absolut reibungslos. Die Aktenlogistik und der IT-Transport waren bestens organisiert. Sehr professionelles Personal."</p>
+        <div class="t-author">
+          <div class="t-avatar">MR</div>
+          <div><span class="t-name">Dr. M. Richter</span><span class="t-date">Vor 2 Wochen</span></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="google-badge">Verifiziert</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Pünktlich, Festpreis exakt eingehalten und die Möbel wurden fachgerecht demontiert und wieder aufgebaut. Der Fuhrpark war modern und sauber."</p>
+        <div class="t-author">
+          <div class="t-avatar">SW</div>
+          <div><span class="t-name">Svenja Wagner</span><span class="t-date">Vor 1 Monat</span></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="google-badge">Verifiziert</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Haben Rigon Logistik für den Transport unserer Server-Racks beauftragt. Höchste Vorsicht, gute Absicherung und klare Kommunikation. Gerne wieder."</p>
+        <div class="t-author">
+          <div class="t-avatar">IT</div>
+          <div><span class="t-name">IT-Solutions GmbH</span><span class="t-date">Vor 2 Monaten</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="bg-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Disposition</div>
+      <h2 class="section-title">Fracht- & Umzugsanfrage</h2>
+    </div>
+    
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="c-item"><h4>Zentrale Disposition</h4><p>+49 (0) 912 345 678</p></div>
+        <div class="c-item"><h4>E-Mail (B2B & B2C)</h4><p>dispo@rigon-logistik.de</p></div>
+        <div class="c-item"><h4>Hauptsitz</h4><p>Industriestraße 12<br>90402 Nürnberg</p></div>
+      </div>
+      
+      <div class="contact-form">
+        <form onsubmit="event.preventDefault(); alert('Daten übermittelt. Unsere Disposition meldet sich in Kürze.');">
+          
+          <div class="form-section-title">1. Allgemeine Daten</div>
+          <div class="form-row">
+            <div class="form-group"><label>Firma / Name *</label><input type="text" required></div>
+            <div class="form-group"><label>Telefon *</label><input type="tel" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>E-Mail *</label><input type="email" required></div>
+            <div class="form-group"><label>Wunschtermin / KW</label><input type="text"></div>
+          </div>
+
+          <div class="form-section-title">2. Ladedaten (Start)</div>
+          <div class="form-row three-col">
+            <div class="form-group"><label>PLZ / Ort *</label><input type="text" required></div>
+            <div class="form-group"><label>Etage</label><input type="text"></div>
+            <div class="form-group"><label>Aufzug vorh.?</label>
+              <select><option>Ja, ausreichend groß</option><option>Ja, aber klein</option><option>Nein</option></select>
+            </div>
+          </div>
+
+          <div class="form-section-title">3. Entladedaten (Ziel)</div>
+          <div class="form-row three-col">
+            <div class="form-group"><label>PLZ / Ort *</label><input type="text" required></div>
+            <div class="form-group"><label>Etage</label><input type="text"></div>
+            <div class="form-group"><label>Aufzug vorh.?</label>
+              <select><option>Ja, ausreichend groß</option><option>Ja, aber klein</option><option>Nein</option></select>
+            </div>
+          </div>
+
+          <div class="form-section-title">4. Spezifikationen</div>
+          <div class="form-row">
+            <div class="form-group"><label>Geschätztes Volumen (m³) / Fläche (m²)</label><input type="text" placeholder="z.B. 45 m³ oder 120 m²"></div>
+            <div class="form-group"><label>Leistungsumfang</label>
+              <select><option>Nur Transport</option><option>Transport & Montage</option><option>Vollservice (inkl. Einpacken)</option></select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="hvz"><label for="hvz">Halteverbotszone durch uns einrichten lassen</label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">Anfrage an Disposition senden</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo-text" style="margin-bottom: 1rem;">Rigon Logistik<br><span>GmbH</span></div>
+        <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.6;">Zertifizierte Fachspedition für Betriebsverlagerungen, Schwerlast und Premium-Wohnraumumzüge. Eingetragenes Logistikunternehmen.</p>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="/leistungen/firmenumzug.html">Firmenumzug & IT-Logistik</a></li>
+          <li><a href="/leistungen/privatumzug.html">Privatumzug</a></li>
+          <li><a href="/leistungen/spezialtransport.html">Tresor- & Klaviertransport</a></li>
+          <li><a href="/leistungen/lagerung.html">Akten- & Möbellagerung</a></li>
+          <li><a href="/leistungen/montage.html">Möbelmontage</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Lokale Umzüge</h4>
+        <ul>
+          <li><a href="/standorte/umzugsunternehmen-nuernberg.html">Umzugsunternehmen Nürnberg</a></li>
+          <li><a href="/standorte/umzugsunternehmen-muenchen.html">Umzugsunternehmen München</a></li>
+          <li><a href="/standorte/umzugsunternehmen-erlangen.html">Umzugsunternehmen Erlangen</a></li>
+          <li><a href="/standorte/umzugsunternehmen-fuerth.html">Umzugsunternehmen Fürth</a></li>
+          <li><a href="/standorte/umzugsunternehmen-bayern.html">Möbeltransport Bayern</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Rechtliches & Service</h4>
+        <ul>
+          <li><a href="/impressum.html">Impressum</a></li>
+          <li><a href="/datenschutz.html">Datenschutzerklärung</a></li>
+          <li><a href="/agb.html">Allgemeine Geschäftsbedingungen</a></li>
+          <li><a href="/zertifikate.html">Zertifikate & Nachweise</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Rigon Logistik GmbH. Alle Rechte vorbehalten.</span>
+      <span>HRB 123456 | Amtsgericht Nürnberg</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
